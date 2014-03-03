@@ -105,6 +105,18 @@ export PS1="$(print '%{\e[0;32m%}%n%{\e[0;32m%}@%{\e[0;32m%}%m%{\e[0m%}:%{\e[0;3
 bindkey '^[[A' up-line-or-history   # Fix cursor position on history recall
 bindkey '^[[B' down-line-or-history # as on Debian these default to vi-*.
 
+# 2x Ctrl-Z to kill with extreme prejudice, or stash the current command and put it back later if there is something in the buffer
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    kill -9 %+
+    zle redisplay
+  else
+    zle push-input
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
 # == Aliases ==
 
 if [ -f ~/.aliases ]; then

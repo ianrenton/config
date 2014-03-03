@@ -26,7 +26,7 @@ AWESOME_CONFDIR  = awful.util.getdir('config')
 HOMEDIR  = os.getenv('HOME')
 CONFDIR  = awful.util.getdir('config') -- TODO: Deprecate
 CMD_LOCK = 'xlock -mode rain'
-modkey   = 'Mod4'
+modkey   = 'Mod1'
 
 TERMINAL = 'xfce4-terminal'
 TERMINAL_CWD = 'urxvt -cd'
